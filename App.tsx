@@ -68,11 +68,11 @@ export default function App() {
             {/* Main Content - Compact Spacing */}
             <main className="p-3 space-y-3">
                 
-                {/* 1. Street Lookup */}
-                <StreetLookup />
-
-                {/* 2. Combined General Info & Schedule */}
+                {/* 1. Combined General Info & Schedule (Moved UP) */}
                 <GeneralInfoArea />
+
+                {/* 2. Street Lookup (Moved DOWN) */}
+                <StreetLookup />
                 
                 {/* 3. Detours */}
                 <DetourGuide />

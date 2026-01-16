@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Clock, CalendarDays, AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Clock, CalendarDays, AlertCircle, Truck, Bus } from 'lucide-react';
 import { SCHEDULES } from '../data';
 import { BanSchedule } from '../types';
 
@@ -83,92 +83,81 @@ export const GeneralInfoArea: React.FC = () => {
 
   return (
     <div className="bg-white rounded border border-vne-border shadow-sm overflow-hidden">
-        {/* Header Section - Compact */}
-        <div className="bg-gray-50/50 px-3 py-2 border-b border-gray-100">
-             <div className="flex flex-row justify-between items-center gap-2">
-                <h3 className="font-serif font-bold text-lg text-gray-900 flex items-center leading-tight">
-                    <span className="w-1 h-4 bg-vne-red mr-2 inline-block rounded-sm"></span>
+        {/* Header: Title + Vehicle Types */}
+        <div className="px-3 py-2 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-gray-50">
+             <div className="flex items-center">
+                <span className="w-1 h-3.5 bg-vne-red mr-2 inline-block rounded-sm"></span>
+                <h3 className="font-serif font-bold text-base text-gray-900 leading-none">
                     Khung giờ cấm
                 </h3>
-                
-                {/* Active Date Badge */}
-                {activeGroup && (
-                    <div className={`flex items-center text-[11px] font-bold px-2 py-1 rounded border shadow-sm ${
-                        activeGroup.hasActiveDate 
-                        ? 'text-vne-red bg-white border-red-100 ring-1 ring-red-50' 
-                        : 'text-gray-600 bg-white border-gray-200'
-                    }`}>
-                        <CalendarDays className="w-3 h-3 mr-1" />
-                        {activeGroup.label}
-                        {activeGroup.isUpcoming && <span className="ml-1 pl-1 border-l border-gray-200 text-blue-600">Sắp tới</span>}
-                        {activeGroup.hasActiveDate && <span className="ml-1 pl-1 border-l border-red-200 text-vne-red animate-pulse">Hôm nay</span>}
-                    </div>
-                )}
              </div>
-
-             {/* Vehicle Types (Ultra Compact) */}
-             <div className="flex flex-wrap gap-2 text-xs text-gray-500 mt-1.5">
-                <span className="inline-flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-vne-gray mr-1"></span>
-                    Xe tải
-                </span>
-                <span className="inline-flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-vne-gray mr-1"></span>
-                    Xe khách {'>'} 16 chỗ
-                </span>
+             
+             {/* Compact Vehicle Icons */}
+             <div className="flex items-center text-xs text-gray-600 bg-white px-2 py-1 rounded border border-gray-200 shadow-sm self-start sm:self-auto">
+                <span className="font-bold mr-2 text-gray-500 uppercase text-[10px]">Cấm:</span>
+                <div className="flex items-center gap-3">
+                    <span className="flex items-center" title="Xe tải">
+                        <Truck className="w-3.5 h-3.5 mr-1 text-vne-red" /> Xe tải
+                    </span>
+                    <span className="w-px h-3 bg-gray-200"></span>
+                    <span className="flex items-center" title="Xe khách trên 16 chỗ">
+                        <Bus className="w-3.5 h-3.5 mr-1 text-vne-red" /> Khách &gt;16 chỗ
+                    </span>
+                </div>
              </div>
         </div>
              
-        <div className="p-3">
-            {/* Tabs */}
+        <div className="p-2 sm:p-3">
+            {/* Date Tabs (Pills) */}
             {!isSingleGroup && visibleGroups.length > 0 && (
-                <div className="mb-3 overflow-x-auto scrollbar-hide">
-                    <div className="flex space-x-1.5 pb-1">
-                        {visibleGroups.map((group, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setActiveIndex(idx)}
-                                className={`py-1.5 px-3 text-xs font-bold rounded transition-all whitespace-nowrap border ${
-                                    activeIndex === idx 
-                                    ? 'text-vne-red bg-red-50 border-red-100 shadow-sm' 
-                                    : 'text-gray-500 bg-white border-gray-100 hover:bg-gray-50'
-                                }`}
-                            >
-                                {group.label}
-                            </button>
-                        ))}
-                    </div>
+                <div className="mb-2 flex flex-wrap gap-1.5">
+                    {visibleGroups.map((group, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => setActiveIndex(idx)}
+                            className={`py-1 px-2.5 text-xs font-bold rounded transition-all whitespace-nowrap border flex items-center ${
+                                activeIndex === idx 
+                                ? 'text-vne-red bg-red-50 border-red-100' 
+                                : 'text-gray-500 bg-white border-gray-100 hover:bg-gray-50'
+                            }`}
+                        >
+                            <CalendarDays className={`w-3 h-3 mr-1 ${activeIndex === idx ? 'text-vne-red' : 'text-gray-400'}`} />
+                            {group.label}
+                            {group.hasActiveDate && <span className="ml-1.5 flex h-1.5 w-1.5 rounded-full bg-vne-red animate-pulse"></span>}
+                        </button>
+                    ))}
                 </div>
             )}
 
-            {/* Time Slots Grid - Compact */}
+            {/* Time Slots Grid - 4 Columns (Single Row on Desktop) */}
             {activeGroup ? (
-                <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <div className="grid grid-cols-2 gap-2">
+                <div className="animate-in fade-in duration-300">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                         {activeGroup.slots.map((slot, idx) => (
-                            <div key={idx} className={`relative group overflow-hidden rounded border border-gray-200 ${activeGroup.hasActiveDate ? 'bg-red-50/30 border-red-100' : 'bg-white'}`}>
-                                <div className="flex items-center justify-center p-2">
-                                    <Clock className="w-3.5 h-3.5 text-vne-red mr-1.5 opacity-80" />
-                                    <span className="text-base font-bold font-serif text-gray-900">{slot.start} - {slot.end}</span>
-                                </div>
+                            <div key={idx} className={`flex items-center justify-center py-1.5 px-1 rounded border text-center ${
+                                activeGroup.hasActiveDate 
+                                ? 'bg-red-50/50 border-red-100 text-vne-red' 
+                                : 'bg-gray-50 border-gray-100 text-gray-700'
+                            }`}>
+                                <Clock className="w-3 h-3 mr-1 opacity-70" />
+                                <span className="text-sm font-bold font-sans">{slot.start}-{slot.end}</span>
                             </div>
                         ))}
                     </div>
                     
-                    {/* Updated Note for Ring Road 3 */}
+                    {/* Compact Note for Ring Road 3 */}
                     {activeGroup.label.includes('19') && (
-                        <div className="mt-2 flex gap-2 p-2.5 bg-orange-50 rounded border border-orange-100">
-                            <AlertCircle className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
-                            <div className="text-xs text-gray-800 leading-snug">
-                                <span className="font-bold block text-orange-800 mb-0.5">Lưu ý Vành đai 3 trên cao:</span>
-                                Cấm xe tải ≥ 10 tấn (đoạn Cầu Thăng Long - Nút giao QL5) từ 06:00 - 21:00.
-                            </div>
+                        <div className="mt-2 text-[11px] text-gray-600 bg-orange-50/50 px-2 py-1.5 rounded border border-orange-100 flex items-start">
+                            <AlertCircle className="w-3 h-3 text-orange-600 mr-1.5 mt-0.5 shrink-0" />
+                            <span>
+                                <b className="text-orange-800">Lưu ý Vành đai 3 trên cao (Cầu Thăng Long - QL5):</b> Cấm xe tải ≥10 tấn từ 06:00-21:00.
+                            </span>
                         </div>
                     )}
                 </div>
             ) : (
-                <div className="text-center py-6 text-gray-400 text-sm">
-                    <p>Không có lịch cấm.</p>
+                <div className="text-center py-2 text-gray-400 text-xs">
+                    Không có lịch cấm.
                 </div>
             )}
         </div>
