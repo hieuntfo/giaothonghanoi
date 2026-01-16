@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Clock, CalendarDays, AlertCircle } from 'lucide-react';
 import { SCHEDULES } from '../data';
 import { BanSchedule } from '../types';
@@ -6,7 +6,7 @@ import { BanSchedule } from '../types';
 export const GeneralInfoArea: React.FC = () => {
   // --- Schedule Grouping Logic ---
   const scheduleGroups = useMemo(() => {
-    const groups: { label: string, slots: BanSchedule['slots'] }[] = [];
+    const groups: { label: string, dates: string[], slots: BanSchedule['slots'] }[] = [];
     const getKey = (slots: BanSchedule['slots']) => JSON.stringify(slots);
     const uniqueMap = new Map<string, string[]>();
     
@@ -24,12 +24,29 @@ export const GeneralInfoArea: React.FC = () => {
             const last = dates[dates.length - 1];
             label = `${first} - ${last}`;
         }
-        groups.push({ label, slots });
+        groups.push({ label, dates, slots });
     });
     return groups;
   }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Effect: Auto-select tab based on today's date
+  useEffect(() => {
+    const now = new Date();
+    const currentMonth = now.getMonth() + 1;
+    const currentDay = now.getDate();
+    const formattedDate = `${String(currentDay).padStart(2, '0')}/${String(currentMonth).padStart(2, '0')}`;
+
+    const todayIndex = scheduleGroups.findIndex(group => 
+        group.dates.includes(formattedDate)
+    );
+
+    if (todayIndex !== -1) {
+        setActiveIndex(todayIndex);
+    }
+  }, [scheduleGroups]);
+
   const activeGroup = scheduleGroups[activeIndex];
 
   return (
@@ -68,8 +85,8 @@ export const GeneralInfoArea: React.FC = () => {
                             onClick={() => setActiveIndex(idx)}
                             className={`py-2 px-4 text-sm font-bold transition-all whitespace-nowrap border-b-2 ${
                                 activeIndex === idx 
-                                ? 'text-vne-red border-vne-red' 
-                                : 'text-gray-500 border-transparent hover:text-gray-700'
+                                ? 'text-vne-red border-vne-red bg-red-50/30' 
+                                : 'text-gray-500 border-transparent hover:text-gray-700 hover:bg-gray-50'
                             }`}
                         >
                             {group.label}
