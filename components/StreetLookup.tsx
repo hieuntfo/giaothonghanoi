@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Search, AlertTriangle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BANNED_STREETS, RESTRICTED_STREETS } from '../data';
 import { StreetStatus } from '../types';
@@ -9,6 +9,9 @@ export const StreetLookup: React.FC = () => {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState<'BANNED' | 'RESTRICTED'>('BANNED');
+  
+  // Reference for the search bar to handle scrolling
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Filter based on Tab AND Query
   const filteredStreets = useMemo(() => {
@@ -39,11 +42,26 @@ export const StreetLookup: React.FC = () => {
   const goToPage = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
+      
+      // Smooth scroll back to the search bar when changing pages
+      // This ensures the user sees the top of the new list
+      if (searchContainerRef.current) {
+        // Use a small timeout to ensure state update has processed if needed, though mostly native works immediately
+        // block: 'center' puts the search bar in the middle, 'start' puts it at the top (sticky position)
+        // Since it's sticky top-0, 'start' is usually correct, but 'nearest' is less jarring.
+        // However, to ensure they see the top of the list, we aim for the sticky container.
+        const yOffset = -10; // offset if needed
+        const element = searchContainerRef.current;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
     }
   };
 
   return (
-    <div className="bg-white rounded border border-vne-border shadow-sm mb-6 overflow-hidden relative">
+    // Removed overflow-hidden from here to allow sticky search to work with the document scroll
+    <div className="bg-white rounded border border-vne-border shadow-sm mb-6 relative">
       <div className="p-4 pb-0">
         <h3 className="font-serif font-bold text-xl text-gray-900 flex items-center mb-4">
             <span className="w-1.5 h-5 bg-vne-red mr-3 inline-block rounded-sm"></span>
@@ -74,8 +92,11 @@ export const StreetLookup: React.FC = () => {
       </div>
 
       {/* Sticky Search Bar Container */}
-      {/* "sticky top-0" works within the parent container. Once user scrolls past this component, it unpins. */}
-      <div className="sticky top-0 z-10 bg-white px-4 py-3 border-b border-gray-100 shadow-sm">
+      {/* Attached ref here for scrolling */}
+      <div 
+        ref={searchContainerRef}
+        className="sticky top-0 z-20 bg-white px-4 py-3 border-b border-gray-100 shadow-sm transition-all"
+      >
         <div className="relative">
             <input
             type="text"

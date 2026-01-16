@@ -27,16 +27,17 @@ export default function App() {
   return (
     <div className="font-sans text-[#333] bg-white sm:bg-[#fcfcfc] p-0 sm:p-4 flex justify-center">
         {/* Widget Container - Max Width 680px for Article Embedding */}
-        <div className="w-full max-w-[680px] bg-white sm:border sm:border-gray-200 sm:rounded-lg sm:shadow-sm overflow-hidden min-h-screen sm:min-h-0">
+        {/* Removed overflow-hidden to allow child sticky elements to work properly */}
+        <div className="w-full max-w-[680px] bg-white sm:border sm:border-gray-200 sm:rounded-lg sm:shadow-sm min-h-screen sm:min-h-0">
             
             {/* Header */}
-            <header className="bg-white border-b border-gray-100 p-4 pb-3">
+            <header className="bg-white border-b border-gray-100 p-4 pb-3 sm:rounded-t-lg">
                 <h1 className="font-serif font-bold text-xl sm:text-2xl text-vne-red leading-tight mb-2">
                     Chi tiết lịch cấm đường ở Hà Nội
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <p className="text-xs sm:text-sm text-gray-500 font-bold uppercase tracking-wide">
-                        Phục vụ Đại hội Đảng XIV
+                        Phục vụ Đại hội Đảng toàn quốc lần thứ XIV
                     </p>
                 </div>
 
