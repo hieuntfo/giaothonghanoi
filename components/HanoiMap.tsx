@@ -49,18 +49,19 @@ export const HanoiMap: React.FC = () => {
       (marker as any).isUserLocation = true;
     });
 
-    // --- Main Logic: Render Dots (CircleMarkers) ---
+    // --- Main Logic: Render Single Dot per Road ---
     const drawRoads = () => {
       ROAD_DATA.forEach(group => {
         group.roads.forEach(road => {
+          // The updated data now guarantees exactly one point in cachedPath
           if (road.cachedPath && road.cachedPath.length > 0) {
-             renderDots(road, road.cachedPath);
+             renderSingleDot(road, road.cachedPath[0]);
           }
         });
       });
     };
 
-    const renderDots = (road: Road, coords: [number, number][]) => {
+    const renderSingleDot = (road: Road, coord: [number, number]) => {
         // Define popup content once
         const popupContent = `
             <div style="font-family: Arial; font-size: 13px; line-height: 1.5; min-width: 200px;">
@@ -83,28 +84,18 @@ export const HanoiMap: React.FC = () => {
             </div>
         `;
 
-        // Render each coordinate as a circle marker
-        coords.forEach((coord, index) => {
-            const isEndpoint = index === 0 || index === coords.length - 1;
-            
-            // Endpoints are larger and fully opaque. 
-            // Intermediate points are smaller and semi-transparent.
-            const radius = isEndpoint ? 7 : 4; 
-            const fillOpacity = isEndpoint ? 1 : 0.7;
-            const weight = isEndpoint ? 2 : 0; // White border only for endpoints
+        // Create a prominent CircleMarker
+        const marker = L.circleMarker(coord, {
+            radius: 8,              // Slightly larger
+            fillColor: road.color,
+            color: '#ffffff',       // White border
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.9,       // Highly visible
+            className: 'leaflet-interactive' 
+        }).addTo(map);
 
-            const marker = L.circleMarker(coord, {
-                radius: radius,
-                fillColor: road.color,
-                color: '#ffffff',
-                weight: weight,
-                opacity: 1,
-                fillOpacity: fillOpacity,
-                className: 'leaflet-interactive' // Ensures click events work
-            }).addTo(map);
-
-            marker.bindPopup(popupContent);
-        });
+        marker.bindPopup(popupContent);
     };
 
     drawRoads();

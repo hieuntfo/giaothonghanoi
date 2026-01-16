@@ -11,11 +11,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Giao Lê Đức Thọ",
         "destination": "Giao Trịnh Văn Bô (Đường 70)",
         "note": "Toàn tuyến",
-        "cachedPath": [
-          [21.02663, 105.76684], // Giao Lê Đức Thọ
-          [21.02896, 105.76033], // Giao Nguyễn Cơ Thạch
-          [21.03387, 105.74768]  // Giao Trịnh Văn Bô / Đường 70
-        ]
+        "cachedPath": [[21.02951, 105.75883]] // Trung tâm đường
       },
       {
         "name": "Lê Đức Thọ",
@@ -24,11 +20,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Hồ Tùng Mậu",
         "destination": "Sân vận động Mỹ Đình",
         "note": "Toàn tuyến",
-        "cachedPath": [
-          [21.03606, 105.76615], // Hồ Tùng Mậu
-          [21.02663, 105.76684], // Giao Trần Hữu Dực
-          [21.01757, 105.76985]  // SVĐ Mỹ Đình (Giao Lê Quang Đạo)
-        ]
+        "cachedPath": [[21.02796, 105.76657]] // Đoạn giữa
       },
       {
         "name": "Lê Quang Đạo",
@@ -37,11 +29,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Sân vận động Mỹ Đình",
         "destination": "Đại lộ Thăng Long",
         "note": "Toàn tuyến",
-        "cachedPath": [
-          [21.01757, 105.76985], // SVĐ Mỹ Đình
-          [21.01185, 105.77123], // Giao Mễ Trì
-          [21.00693, 105.77239]  // Giao Đại Lộ Thăng Long
-        ]
+        "cachedPath": [[21.01250, 105.77100]] // Đoạn Phú Đô
       },
       {
         "name": "Phạm Hùng",
@@ -50,14 +38,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Ngã tư Mai Dịch",
         "destination": "Trần Duy Hưng (Big C)",
         "note": "Xe tải, khách >16 chỗ",
-        "cachedPath": [
-          [21.03700, 105.77800], // Mai Dịch
-          [21.02850, 105.78150], // Bến xe Mỹ Đình
-          [21.01850, 105.78410], // Keangnam
-          [21.01423, 105.78469], // Giao Mễ Trì
-          [21.00845, 105.78385], // Giao Đỗ Đức Dục
-          [21.00816, 105.79383]  // Big C (Trần Duy Hưng)
-        ]
+        "cachedPath": [[21.01850, 105.78410]] // Khu vực Keangnam
       },
       {
         "name": "Đỗ Đức Dục",
@@ -66,11 +47,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Phạm Hùng (Bảo tàng HN)",
         "destination": "Miếu Đầm",
         "note": "Toàn tuyến",
-        "cachedPath": [
-          [21.00845, 105.78385], // Giao Phạm Hùng
-          [21.00650, 105.78650], // Cổng Marriott
-          [21.00481, 105.78799]  // Giao Miếu Đầm
-        ]
+        "cachedPath": [[21.00700, 105.78500]] // Cổng khách sạn Marriott
       },
       {
         "name": "Miếu Đầm",
@@ -79,11 +56,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Đỗ Đức Dục",
         "destination": "Đại lộ Thăng Long",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.00481, 105.78799], // Giao Đỗ Đức Dục
-            [21.00750, 105.78720], // Cầu vượt Mễ Trì
-            [21.00947, 105.78652]  // Ra Đại Lộ Thăng Long
-        ]
+        "cachedPath": [[21.00750, 105.78720]] // Cầu vượt Mễ Trì
       },
       {
         "name": "Mễ Trì",
@@ -92,11 +65,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Phạm Hùng",
         "destination": "Lê Quang Đạo",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.01423, 105.78469], // Giao Phạm Hùng
-            [21.01300, 105.77800], // The Manor
-            [21.01185, 105.77123]  // Giao Lê Quang Đạo
-        ]
+        "cachedPath": [[21.01300, 105.77800]] // Khu vực The Manor
       },
       {
         "name": "Đại lộ Thăng Long",
@@ -105,12 +74,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Phạm Hùng",
         "destination": "Lê Quang Đạo",
         "note": "Làn tiếp giáp Trung tâm Hội nghị Quốc gia",
-        "cachedPath": [
-          [21.00816, 105.79383], // Big C
-          [21.0078, 105.7880],
-          [21.0075, 105.7830], 
-          [21.00693, 105.77239]  // Giao Lê Quang Đạo
-        ]
+        "cachedPath": [[21.00750, 105.78000]] // Cổng NCC
       },
       {
         "name": "Trần Duy Hưng",
@@ -119,11 +83,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Hầm chui Trung Hòa",
         "destination": "Cầu vượt Nguyễn Chí Thanh",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.00816, 105.79383], // Big C
-            [21.01000, 105.79800],
-            [21.01237, 105.80325]  // Giao Láng
-        ]
+        "cachedPath": [[21.01100, 105.80000]] // Gần Grand Plaza
       },
       {
         "name": "Nguyễn Chí Thanh",
@@ -132,11 +92,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Trần Duy Hưng",
         "destination": "Kim Mã / Liễu Giai",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.01237, 105.80325], // Giao Láng
-            [21.02100, 105.80800],
-            [21.02690, 105.81308]  // Giao Liễu Giai
-        ]
+        "cachedPath": [[21.02300, 105.81000]] // Hồ Ngọc Khánh
       },
       {
         "name": "Liễu Giai",
@@ -145,11 +101,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Nguyễn Chí Thanh",
         "destination": "Phan Kế Bính",
         "note": "Đoạn Nguyễn Chí Thanh - Phan Kế Bính",
-        "cachedPath": [
-            [21.02690, 105.81308], // Giao Nguyễn Chí Thanh
-            [21.03212, 105.81555], // Giao Đào Tấn
-            [21.03608, 105.81745]  // Giao Phan Kế Bính
-        ]
+        "cachedPath": [[21.03200, 105.81600]] // Metropolis
       },
       {
         "name": "Đào Tấn",
@@ -158,10 +110,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Liễu Giai",
         "destination": "Bưởi",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.03212, 105.81555], // Giao Liễu Giai
-            [21.03450, 105.80330]  // Giao Bưởi
-        ]
+        "cachedPath": [[21.03350, 105.81000]] // Công viên Thủ Lệ
       },
       {
         "name": "Kim Mã",
@@ -170,11 +119,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Liễu Giai (Daewoo)",
         "destination": "Sơn Tây / Nguyễn Thái Học",
         "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.03212, 105.81555], // Giao Liễu Giai
-            [21.0315, 105.8200],
-            [21.03058, 105.83060]  // Giao Sơn Tây
-        ]
+        "cachedPath": [[21.03150, 105.82500]] // Nhà hát chèo
       },
       {
         "name": "Khuất Duy Tiến",
@@ -183,7 +128,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Lê Văn Lương",
         "destination": "Phạm Hùng",
         "note": "Đoạn từ Lê Văn Lương đến Phạm Hùng",
-        "cachedPath": [[21.0080, 105.7930], [21.0040, 105.7950], [20.9990, 105.7975]]
+        "cachedPath": [[21.00300, 105.79600]] // Nút giao Nguyễn Trãi/BigC
       },
       {
         "name": "Vạn Phúc",
@@ -192,7 +137,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Liễu Giai",
         "destination": "Hoàng Hoa Thám",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.03608, 105.81745], [21.0380, 105.8180]]
+        "cachedPath": [[21.03700, 105.81750]]
       },
       {
         "name": "Nguyễn Thái Học",
@@ -201,7 +146,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Kim Mã",
         "destination": "Cửa Nam",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.03058, 105.83060], [21.0290, 105.8400]]
+        "cachedPath": [[21.02980, 105.83500]] // Văn Miếu
       },
       {
         "name": "Trần Phú",
@@ -210,7 +155,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Kim Mã",
         "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.03058, 105.83060], [21.0325, 105.8390]]
+        "cachedPath": [[21.03150, 105.83600]]
       },
       {
         "name": "Hùng Vương",
@@ -219,7 +164,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Hoàng Hoa Thám",
         "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0360, 105.8365], [21.0400, 105.8375]]
+        "cachedPath": [[21.03750, 105.83700]] // Quảng trường
       },
       {
         "name": "Chu Văn An",
@@ -228,7 +173,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Điện Biên Phủ",
         "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0310, 105.8370], [21.0335, 105.8385]]
+        "cachedPath": [[21.03250, 105.83750]]
       },
       {
         "name": "Hoàng Diệu",
@@ -237,7 +182,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Phan Đình Phùng",
         "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0350, 105.8400], [21.0320, 105.8405]]
+        "cachedPath": [[21.03400, 105.84050]] // Hoàng Thành
       },
       {
         "name": "Độc Lập",
@@ -246,7 +191,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Điện Biên Phủ",
         "destination": "Hoàng Văn Thụ",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0365, 105.8350], [21.0350, 105.8355]]
+        "cachedPath": [[21.03600, 105.83520]] // Lăng Bác
       },
       {
         "name": "Lê Hồng Phong",
@@ -255,7 +200,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Đội Cấn",
         "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0335, 105.8355], [21.0340, 105.8380]]
+        "cachedPath": [[21.03380, 105.83650]]
       },
       {
         "name": "Hoàng Văn Thụ",
@@ -264,7 +209,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Hoàng Diệu",
         "destination": "Độc Lập",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0375, 105.8350], [21.0380, 105.8400]]
+        "cachedPath": [[21.03780, 105.83800]]
       },
       {
         "name": "Nguyễn Tri Phương",
@@ -273,7 +218,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Phan Đình Phùng",
         "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0340, 105.8410], [21.0280, 105.8415]]
+        "cachedPath": [[21.03100, 105.84120]]
       },
       {
         "name": "Điện Biên Phủ",
@@ -282,7 +227,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cửa Nam",
         "destination": "Lăng Bác",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0290, 105.8400], [21.0330, 105.8390]]
+        "cachedPath": [[21.03100, 105.83950]] // Cột cờ
       },
       {
         "name": "Lê Duẩn",
@@ -291,7 +236,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Điện Biên Phủ",
         "destination": "Nguyễn Du",
         "note": "Đoạn Điện Biên Phủ - Nguyễn Du",
-        "cachedPath": [[21.0330, 105.8400], [21.0200, 105.8420]]
+        "cachedPath": [[21.02600, 105.84150]] // Ga HN
       },
       {
         "name": "Hàng Lọng",
@@ -300,7 +245,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Khu vực Ga Hà Nội",
         "destination": "Khu vực Ga Hà Nội",
         "note": "Đoạn qua Ga Hà Nội",
-        "cachedPath": [[21.0245, 105.8415], [21.0235, 105.8418]]
+        "cachedPath": [[21.02400, 105.84160]]
       },
       {
         "name": "Trần Bình Trọng",
@@ -309,7 +254,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Trần Hưng Đạo",
         "destination": "Trần Nhân Tông",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0225, 105.8430], [21.0200, 105.8435]]
+        "cachedPath": [[21.02150, 105.84320]]
       },
       {
         "name": "Trần Hưng Đạo",
@@ -318,7 +263,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Quang Trung",
         "destination": "Quán Sứ",
         "note": "Đoạn Quang Trung - Quán Sứ",
-        "cachedPath": [[21.0228, 105.8425], [21.0242, 105.8458]]
+        "cachedPath": [[21.02350, 105.84400]]
       },
       {
         "name": "Quán Sứ",
@@ -327,7 +272,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Hai Bà Trưng",
         "destination": "Trần Hưng Đạo",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0255, 105.8458], [21.0210, 105.8450]]
+        "cachedPath": [[21.02300, 105.84550]]
       },
       {
         "name": "Tràng Thi",
@@ -336,7 +281,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cửa Nam",
         "destination": "Quang Trung",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0265, 105.8480], [21.0260, 105.8420]]
+        "cachedPath": [[21.02630, 105.84500]] // Bệnh viện Việt Đức
       },
       {
         "name": "Vành đai 3 trên cao",
@@ -345,14 +290,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cầu Thăng Long",
         "destination": "Nút giao Quốc lộ 5",
         "note": "Cấm ô tô >10 tấn, 6h-21h",
-        "cachedPath": [
-            [21.0965, 105.7845], // Cầu Thăng Long
-            [21.0450, 105.7800], // Mai Dịch
-            [21.0080, 105.7930], // Khuất Duy Tiến / Big C
-            [20.9700, 105.8150], // Linh Đàm
-            [20.9600, 105.8300], // Pháp Vân
-            [21.0000, 105.9000]  // Cầu Thanh Trì / QL5
-        ]
+        "cachedPath": [[20.98000, 105.81000]] // Khu vực Linh Đàm (Đại diện)
       }
     ]
   },
@@ -366,7 +304,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Bưởi",
         "destination": "Phan Đình Phùng",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0435, 105.8130], [21.0380, 105.8350]]
+        "cachedPath": [[21.04100, 105.82500]] // Công viên Bách Thảo
       },
       {
         "name": "Thanh Niên",
@@ -375,7 +313,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Yên Phụ",
         "destination": "Hùng Vương",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0480, 105.8350], [21.0420, 105.8420]]
+        "cachedPath": [[21.04500, 105.83800]] // Chùa Trấn Quốc
       },
       {
         "name": "Thụy Khuê",
@@ -384,7 +322,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Bưởi",
         "destination": "Mai Xuân Thưởng",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0430, 105.8150], [21.0380, 105.8320]]
+        "cachedPath": [[21.04000, 105.82000]]
       },
       {
         "name": "Nghi Tàm",
@@ -393,7 +331,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Âu Cơ",
         "destination": "Yên Phụ",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0550, 105.8350], [21.0600, 105.8300]]
+        "cachedPath": [[21.05800, 105.83200]]
       },
       {
         "name": "Âu Cơ",
@@ -402,7 +340,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cầu Nhật Tân",
         "destination": "Nghi Tàm",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0650, 105.8300], [21.0800, 105.8150]]
+        "cachedPath": [[21.07200, 105.82200]] // Gần Ciputra
       },
       {
         "name": "An Dương Vương",
@@ -411,7 +349,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cầu Nhật Tân",
         "destination": "Cầu Thăng Long",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0800, 105.8150], [21.0900, 105.8000]]
+        "cachedPath": [[21.08500, 105.81000]]
       },
       {
         "name": "Yên Phụ",
@@ -420,7 +358,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Nghi Tàm",
         "destination": "Trần Nhật Duật",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0450, 105.8450], [21.0400, 105.8500]]
+        "cachedPath": [[21.04300, 105.84800]] // Điểm trung chuyển Long Biên
       },
       {
         "name": "Trần Nhật Duật",
@@ -429,7 +367,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Yên Phụ",
         "destination": "Trần Quang Khải",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0360, 105.8550], [21.0300, 105.8600]]
+        "cachedPath": [[21.03400, 105.85700]] // Chân cầu Chương Dương
       },
       {
         "name": "Hai Bà Trưng",
@@ -438,7 +376,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Lê Thánh Tông",
         "destination": "Lê Duẩn",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0250, 105.8500], [21.0240, 105.8400]]
+        "cachedPath": [[21.02450, 105.84800]] // Tràng Tiền Plaza
       },
       {
         "name": "Láng",
@@ -447,7 +385,7 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Cầu Giấy",
         "destination": "Ngã Tư Sở",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0320, 105.8020], [21.0150, 105.8050], [21.0020, 105.8150]]
+        "cachedPath": [[21.01000, 105.81000]] // Cầu Yên Hòa
       },
       {
         "name": "Láng Hạ",
@@ -456,16 +394,16 @@ export const ROAD_DATA: RoadGroup[] = [
         "origin": "Láng",
         "destination": "Giảng Võ",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0180, 105.8060], [21.0160, 105.8250]]
+        "cachedPath": [[21.01700, 105.81500]] // Rạp chiếu phim QG
       },
       {
-        "name": "Lê Văn Lương",
+        "name": "Le Van Luong",
         "type": "restricted",
         "color": "#ea580c",
         "origin": "Khuất Duy Tiến",
         "destination": "Láng",
         "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0070, 105.8000], [21.0030, 105.8180]]
+        "cachedPath": [[21.00500, 105.81000]] // Cầu vượt Hoàng Đạo Thúy
       },
       {
         "name": "Mễ Trì",
@@ -473,8 +411,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "color": "#ea580c",
         "origin": "Lê Quang Đạo",
         "destination": "Phạm Hùng",
-        "note": "Hạn chế xe tải/khách (Đoạn này đã cấm, có thể là Mễ Trì đoạn trên)",
-        "cachedPath": [[21.01185, 105.77123], [21.01423, 105.78469]]
+        "note": "Hạn chế xe tải/khách",
+        "cachedPath": [[21.01423, 105.78469]] // Đoạn Mễ Trì Hạ
       }
     ]
   }
