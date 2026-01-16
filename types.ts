@@ -8,22 +8,26 @@ export interface BanSchedule {
   slots: TimeSlot[];
 }
 
-export enum StreetStatus {
-  BANNED = 'BANNED',
-  RESTRICTED = 'RESTRICTED',
-  NORMAL = 'NORMAL'
-}
-
-export interface StreetInfo {
-  name: string;
-  type: StreetStatus;
-  description?: string;
-  lat?: number;
-  lng?: number;
-}
-
 export interface RouteGuide {
   from: string;
   to: string;
   path: string;
+}
+
+// --- New Data Structure Types ---
+
+export interface Road {
+  name: string;
+  type: 'forbidden' | 'restricted';
+  color: string;
+  origin: string;      // Point A address
+  destination: string; // Point B address
+  note: string;
+  // Pre-calculated coordinates to simulate the Directions API result for curves
+  cachedPath?: [number, number][];
+}
+
+export interface RoadGroup {
+  group: string;
+  roads: Road[];
 }

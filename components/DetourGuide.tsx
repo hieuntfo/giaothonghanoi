@@ -21,7 +21,7 @@ export const DetourGuide: React.FC = () => {
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                     <span>{route.to}</span>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed border-l-2 border-gray-300 pl-3">
+                <p className="text-gray-700 text-sm leading-relaxed border-l-2 border-gray-300 pl-3 text-justify">
                     {route.path}
                 </p>
             </div>

@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Search, AlertTriangle, XCircle, ChevronLeft, ChevronRight, Map, List, ExternalLink, MapPin } from 'lucide-react';
-import { BANNED_STREETS, RESTRICTED_STREETS } from '../data';
-import { StreetStatus } from '../types';
+import { Search, AlertTriangle, XCircle, ChevronLeft, ChevronRight, Map, List, MapPin } from 'lucide-react';
+import { ROAD_DATA } from '../data';
 import { HanoiMap } from './HanoiMap';
 
 const ITEMS_PER_PAGE = 10;
@@ -9,20 +8,28 @@ const ITEMS_PER_PAGE = 10;
 export const StreetLookup: React.FC = () => {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState<'BANNED' | 'RESTRICTED'>('BANNED');
+  const [activeTab, setActiveTab] = useState<'forbidden' | 'restricted'>('forbidden');
   const [viewMode, setViewMode] = useState<'LIST' | 'MAP'>('LIST');
   
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // Filter based on Tab AND Query
+  // Flatten the data for the list view
+  const currentGroupData = useMemo(() => {
+    // Find the group corresponding to the active tab
+    const groupNameKeyword = activeTab === 'forbidden' ? "Cấm" : "Hạn chế";
+    const group = ROAD_DATA.find(g => g.group.includes(groupNameKeyword));
+    return group ? group.roads : [];
+  }, [activeTab]);
+
+  // Filter based on Query
   const filteredStreets = useMemo(() => {
-    let sourceData = activeTab === 'BANNED' ? BANNED_STREETS : RESTRICTED_STREETS;
+    let sourceData = currentGroupData;
     if (query) {
         const lowerQuery = query.toLowerCase();
         sourceData = sourceData.filter(s => s.name.toLowerCase().includes(lowerQuery));
     }
     return sourceData;
-  }, [query, activeTab]);
+  }, [query, currentGroupData]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -47,9 +54,7 @@ export const StreetLookup: React.FC = () => {
   };
 
   const openGoogleMaps = (streetName: string) => {
-    // Deep link to Google Maps Native App or Website
     const encodedQuery = encodeURIComponent(`${streetName}, Hà Nội`);
-    // 'geo:' protocol is better for mobile apps, fallback to https
     const url = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
     window.open(url, '_blank');
   };
@@ -89,22 +94,22 @@ export const StreetLookup: React.FC = () => {
         {viewMode === 'LIST' && (
             <div className="flex border-b border-gray-200">
                 <button 
-                    onClick={() => setActiveTab('BANNED')}
+                    onClick={() => setActiveTab('forbidden')}
                     className={`flex-1 pb-3 text-sm font-bold uppercase tracking-wide transition-colors relative ${
-                        activeTab === 'BANNED' ? 'text-vne-red' : 'text-gray-400 hover:text-gray-600'
+                        activeTab === 'forbidden' ? 'text-vne-red' : 'text-gray-400 hover:text-gray-600'
                     }`}
                 >
                     Cấm đường
-                    {activeTab === 'BANNED' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-vne-red"></span>}
+                    {activeTab === 'forbidden' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-vne-red"></span>}
                 </button>
                 <button 
-                    onClick={() => setActiveTab('RESTRICTED')}
+                    onClick={() => setActiveTab('restricted')}
                     className={`flex-1 pb-3 text-sm font-bold uppercase tracking-wide transition-colors relative ${
-                        activeTab === 'RESTRICTED' ? 'text-orange-600' : 'text-gray-400 hover:text-gray-600'
+                        activeTab === 'restricted' ? 'text-orange-600' : 'text-gray-400 hover:text-gray-600'
                     }`}
                 >
                     Hạn chế
-                    {activeTab === 'RESTRICTED' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-orange-600"></span>}
+                    {activeTab === 'restricted' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-orange-600"></span>}
                 </button>
             </div>
         )}
@@ -119,7 +124,7 @@ export const StreetLookup: React.FC = () => {
             <div className="relative">
                 <input
                 type="text"
-                placeholder={activeTab === 'BANNED' ? "Tìm đường cấm (VD: Lê Duẩn...)" : "Tìm đường hạn chế (VD: Láng...)"}
+                placeholder={activeTab === 'forbidden' ? "Tìm đường cấm (VD: Lê Duẩn...)" : "Tìm đường hạn chế (VD: Láng...)"}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:border-vne-red focus:bg-white transition-all text-sm text-gray-800"
@@ -135,7 +140,7 @@ export const StreetLookup: React.FC = () => {
                         <div key={`${street.name}-${idx}`} className="flex items-start justify-between py-3 border-b border-gray-100 last:border-0 group">
                             <div className="flex items-start">
                                 <div className="mr-3 mt-1 shrink-0">
-                                    {street.type === StreetStatus.BANNED ? (
+                                    {street.type === 'forbidden' ? (
                                     <XCircle className="text-vne-red w-5 h-5" />
                                     ) : (
                                     <AlertTriangle className="text-orange-500 w-5 h-5" />
@@ -143,13 +148,15 @@ export const StreetLookup: React.FC = () => {
                                 </div>
                                 <div>
                                     <div className="font-bold text-gray-900 text-base leading-tight mb-1">{street.name}</div>
-                                    {street.description && (
-                                    <p className="text-sm text-gray-600 leading-snug">{street.description}</p>
+                                    <p className="text-sm text-gray-600 leading-snug">
+                                        <span className="font-semibold">{street.origin.replace(', Hà Nội', '')}</span> - <span className="font-semibold">{street.destination.replace(', Hà Nội', '')}</span>
+                                    </p>
+                                    {street.note && (
+                                        <p className="text-xs text-gray-500 mt-1 italic">{street.note}</p>
                                     )}
                                 </div>
                             </div>
                             
-                            {/* Action Button: View on Google Maps */}
                             <button 
                                 onClick={() => openGoogleMaps(street.name)}
                                 className="shrink-0 ml-2 p-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 active:bg-blue-200 transition-colors"
@@ -195,7 +202,11 @@ export const StreetLookup: React.FC = () => {
         /* MAP VIEW */
         <div className="p-4 animate-in fade-in duration-300">
              <div className="mb-3 text-sm text-gray-600 bg-gray-50 p-2 rounded border border-gray-100">
-                <strong className="text-gray-900">Mẹo:</strong> Các vòng tròn <span className="text-vne-red font-bold">Đỏ (Cấm)</span> và <span className="text-orange-600 font-bold">Cam (Hạn chế)</span> hiển thị khu vực ảnh hưởng ước tính. Nhấn vào nút điều hướng góc phải để xem vị trí của bạn.
+                <strong className="text-gray-900">Mẹo:</strong> 
+                Các tuyến đường được vẽ theo địa hình thực tế. 
+                <span className="text-vne-red font-bold mx-1">Màu Đỏ</span> là Cấm, 
+                <span className="text-orange-600 font-bold mx-1">Màu Cam</span> là Hạn chế.
+                Bấm vào tuyến đường để xem chi tiết.
             </div>
             <HanoiMap />
         </div>
