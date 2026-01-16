@@ -1,5 +1,7 @@
 {
   "name": "Tra cứu Cấm đường Hà Nội",
   "description": "Công cụ tra cứu lịch cấm và hạn chế phương tiện dịp Đại hội Đảng lần thứ XIV theo phong cách VnExpress.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "geolocation"
+  ]
 }

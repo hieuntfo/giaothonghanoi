@@ -18,6 +18,8 @@ export interface StreetInfo {
   name: string;
   type: StreetStatus;
   description?: string;
+  lat?: number;
+  lng?: number;
 }
 
 export interface RouteGuide {
