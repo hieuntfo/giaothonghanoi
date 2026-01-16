@@ -5,170 +5,219 @@ export const ROAD_DATA: RoadGroup[] = [
     "group": "Cấm triệt để (Màu Đỏ)",
     "roads": [
       {
+        "name": "Trần Hữu Dực",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Giao Lê Đức Thọ",
+        "destination": "Giao Trịnh Văn Bô (Đường 70)",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+          [21.02663, 105.76684], // Giao Lê Đức Thọ
+          [21.02896, 105.76033], // Giao Nguyễn Cơ Thạch
+          [21.03387, 105.74768]  // Giao Trịnh Văn Bô / Đường 70
+        ]
+      },
+      {
+        "name": "Lê Đức Thọ",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Hồ Tùng Mậu",
+        "destination": "Sân vận động Mỹ Đình",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+          [21.03606, 105.76615], // Hồ Tùng Mậu
+          [21.02663, 105.76684], // Giao Trần Hữu Dực
+          [21.01757, 105.76985]  // SVĐ Mỹ Đình (Giao Lê Quang Đạo)
+        ]
+      },
+      {
+        "name": "Lê Quang Đạo",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Sân vận động Mỹ Đình",
+        "destination": "Đại lộ Thăng Long",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+          [21.01757, 105.76985], // SVĐ Mỹ Đình
+          [21.01185, 105.77123], // Giao Mễ Trì
+          [21.00693, 105.77239]  // Giao Đại Lộ Thăng Long
+        ]
+      },
+      {
         "name": "Phạm Hùng",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Ngã tư Mễ Trì, Hà Nội",
-        "destination": "Trần Duy Hưng, Hà Nội",
+        "origin": "Ngã tư Mai Dịch",
+        "destination": "Trần Duy Hưng (Big C)",
         "note": "Xe tải, khách >16 chỗ",
         "cachedPath": [
-          [21.0300, 105.7810], // Mai Dịch
-          [21.0250, 105.7825], // Bến xe Mỹ Đình
-          [21.0185, 105.7841], // Keangnam
-          [21.0140, 105.7850], // Mễ Trì
-          [21.0080, 105.7930]  // Big C
+          [21.03700, 105.77800], // Mai Dịch
+          [21.02850, 105.78150], // Bến xe Mỹ Đình
+          [21.01850, 105.78410], // Keangnam
+          [21.01423, 105.78469], // Giao Mễ Trì
+          [21.00845, 105.78385], // Giao Đỗ Đức Dục
+          [21.00816, 105.79383]  // Big C (Trần Duy Hưng)
+        ]
+      },
+      {
+        "name": "Đỗ Đức Dục",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Phạm Hùng (Bảo tàng HN)",
+        "destination": "Miếu Đầm",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+          [21.00845, 105.78385], // Giao Phạm Hùng
+          [21.00650, 105.78650], // Cổng Marriott
+          [21.00481, 105.78799]  // Giao Miếu Đầm
+        ]
+      },
+      {
+        "name": "Miếu Đầm",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Đỗ Đức Dục",
+        "destination": "Đại lộ Thăng Long",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+            [21.00481, 105.78799], // Giao Đỗ Đức Dục
+            [21.00750, 105.78720], // Cầu vượt Mễ Trì
+            [21.00947, 105.78652]  // Ra Đại Lộ Thăng Long
+        ]
+      },
+      {
+        "name": "Mễ Trì",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Phạm Hùng",
+        "destination": "Lê Quang Đạo",
+        "note": "Toàn tuyến",
+        "cachedPath": [
+            [21.01423, 105.78469], // Giao Phạm Hùng
+            [21.01300, 105.77800], // The Manor
+            [21.01185, 105.77123]  // Giao Lê Quang Đạo
         ]
       },
       {
         "name": "Đại lộ Thăng Long",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Phạm Hùng, Hà Nội",
-        "destination": "Đường gom Lê Quang Đạo, Hà Nội",
+        "origin": "Phạm Hùng",
+        "destination": "Lê Quang Đạo",
         "note": "Làn tiếp giáp Trung tâm Hội nghị Quốc gia",
         "cachedPath": [
-          [21.0080, 105.7930], // Big C
+          [21.00816, 105.79383], // Big C
           [21.0078, 105.7880],
           [21.0075, 105.7830], 
-          [21.0070, 105.7720]  // Nút giao Lê Quang Đạo
-        ]
-      },
-      {
-        "name": "Trần Hữu Dực",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Đầu đường Trần Hữu Dực, Hà Nội",
-        "destination": "Cuối đường Trần Hữu Dực, Hà Nội",
-        "note": "Toàn tuyến",
-        "cachedPath": [[21.0355, 105.7650], [21.0320, 105.7530], [21.0305, 105.7480]]
-      },
-      {
-        "name": "Lê Đức Thọ",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Đầu đường Lê Đức Thọ, Hà Nội",
-        "destination": "Cuối đường Lê Đức Thọ, Hà Nội",
-        "note": "Toàn tuyến",
-        "cachedPath": [[21.0355, 105.7650], [21.0260, 105.7675], [21.0170, 105.7700]]
-      },
-      {
-        "name": "Lê Quang Đạo",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Đầu đường Lê Quang Đạo, Hà Nội",
-        "destination": "Cuối đường Lê Quang Đạo, Hà Nội",
-        "note": "Toàn tuyến",
-        "cachedPath": [[21.0170, 105.7700], [21.0120, 105.7715], [21.0070, 105.7720]]
-      },
-      {
-        "name": "Đỗ Đức Dục",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Đầu đường Đỗ Đức Dục, Hà Nội",
-        "destination": "Cuối đường Đỗ Đức Dục, Hà Nội",
-        "note": "Toàn tuyến",
-        "cachedPath": [[21.0075, 105.7930], [21.0062, 105.7876], [21.0030, 105.7880]]
-      },
-      {
-        "name": "Miếu Đầm",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Đầu đường Miếu Đầm, Hà Nội",
-        "destination": "Cuối đường Miếu Đầm, Hà Nội",
-        "note": "Toàn tuyến",
-        "cachedPath": [
-            [21.0062, 105.7876], // Giao Đỗ Đức Dục
-            [21.0078, 105.7870], // Giữa hồ
-            [21.0094, 105.7865]  // Giao Đại Lộ Thăng Long
+          [21.00693, 105.77239]  // Giao Lê Quang Đạo
         ]
       },
       {
         "name": "Trần Duy Hưng",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Trần Duy Hưng, Hà Nội",
-        "destination": "Cuối đường Trần Duy Hưng, Hà Nội",
+        "origin": "Hầm chui Trung Hòa",
+        "destination": "Cầu vượt Nguyễn Chí Thanh",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0080, 105.7930], [21.0100, 105.7980], [21.0125, 105.8025]]
-      },
-      {
-        "name": "Khuất Duy Tiến",
-        "type": "forbidden",
-        "color": "#9f224e",
-        "origin": "Lê Văn Lương, Hà Nội",
-        "destination": "Phạm Hùng, Hà Nội",
-        "note": "Đoạn từ Lê Văn Lương đến Phạm Hùng",
-        "cachedPath": [[21.0080, 105.7930], [21.0040, 105.7950], [20.9990, 105.7975]]
+        "cachedPath": [
+            [21.00816, 105.79383], // Big C
+            [21.01000, 105.79800],
+            [21.01237, 105.80325]  // Giao Láng
+        ]
       },
       {
         "name": "Nguyễn Chí Thanh",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Nguyễn Chí Thanh, Hà Nội",
-        "destination": "Cuối đường Nguyễn Chí Thanh, Hà Nội",
+        "origin": "Trần Duy Hưng",
+        "destination": "Kim Mã / Liễu Giai",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0125, 105.8025], [21.0210, 105.8080], [21.0270, 105.8130]]
+        "cachedPath": [
+            [21.01237, 105.80325], // Giao Láng
+            [21.02100, 105.80800],
+            [21.02690, 105.81308]  // Giao Liễu Giai
+        ]
       },
       {
         "name": "Liễu Giai",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Nguyễn Chí Thanh, Hà Nội",
-        "destination": "Phan Kế Bính, Hà Nội",
+        "origin": "Nguyễn Chí Thanh",
+        "destination": "Phan Kế Bính",
         "note": "Đoạn Nguyễn Chí Thanh - Phan Kế Bính",
-        "cachedPath": [[21.0270, 105.8130], [21.0320, 105.8155], [21.0360, 105.8170]]
+        "cachedPath": [
+            [21.02690, 105.81308], // Giao Nguyễn Chí Thanh
+            [21.03212, 105.81555], // Giao Đào Tấn
+            [21.03608, 105.81745]  // Giao Phan Kế Bính
+        ]
       },
       {
         "name": "Đào Tấn",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Đào Tấn, Hà Nội",
-        "destination": "Cuối đường Đào Tấn, Hà Nội",
+        "origin": "Liễu Giai",
+        "destination": "Bưởi",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0320, 105.8155], [21.0330, 105.8100], [21.0340, 105.8050]]
+        "cachedPath": [
+            [21.03212, 105.81555], // Giao Liễu Giai
+            [21.03450, 105.80330]  // Giao Bưởi
+        ]
       },
       {
         "name": "Kim Mã",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Kim Mã, Hà Nội",
-        "destination": "Cuối đường Kim Mã, Hà Nội",
+        "origin": "Liễu Giai (Daewoo)",
+        "destination": "Sơn Tây / Nguyễn Thái Học",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0300, 105.8300], [21.0315, 105.8200], [21.0320, 105.8155]]
+        "cachedPath": [
+            [21.03212, 105.81555], // Giao Liễu Giai
+            [21.0315, 105.8200],
+            [21.03058, 105.83060]  // Giao Sơn Tây
+        ]
+      },
+      {
+        "name": "Khuất Duy Tiến",
+        "type": "forbidden",
+        "color": "#9f224e",
+        "origin": "Lê Văn Lương",
+        "destination": "Phạm Hùng",
+        "note": "Đoạn từ Lê Văn Lương đến Phạm Hùng",
+        "cachedPath": [[21.0080, 105.7930], [21.0040, 105.7950], [20.9990, 105.7975]]
       },
       {
         "name": "Vạn Phúc",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Vạn Phúc, Hà Nội",
-        "destination": "Cuối đường Vạn Phúc, Hà Nội",
+        "origin": "Liễu Giai",
+        "destination": "Hoàng Hoa Thám",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0360, 105.8170], [21.0380, 105.8180]]
+        "cachedPath": [[21.03608, 105.81745], [21.0380, 105.8180]]
       },
       {
         "name": "Nguyễn Thái Học",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Nguyễn Thái Học, Hà Nội",
-        "destination": "Cuối đường Nguyễn Thái Học, Hà Nội",
+        "origin": "Kim Mã",
+        "destination": "Cửa Nam",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0300, 105.8300], [21.0290, 105.8400]]
+        "cachedPath": [[21.03058, 105.83060], [21.0290, 105.8400]]
       },
       {
         "name": "Trần Phú",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Trần Phú, Ba Đình, Hà Nội",
-        "destination": "Cuối đường Trần Phú, Ba Đình, Hà Nội",
+        "origin": "Kim Mã",
+        "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
-        "cachedPath": [[21.0300, 105.8300], [21.0325, 105.8390]]
+        "cachedPath": [[21.03058, 105.83060], [21.0325, 105.8390]]
       },
       {
         "name": "Hùng Vương",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Hùng Vương, Hà Nội",
-        "destination": "Cuối đường Hùng Vương, Hà Nội",
+        "origin": "Hoàng Hoa Thám",
+        "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0360, 105.8365], [21.0400, 105.8375]]
       },
@@ -176,8 +225,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Chu Văn An",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Chu Văn An, Hà Nội",
-        "destination": "Cuối đường Chu Văn An, Hà Nội",
+        "origin": "Điện Biên Phủ",
+        "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0310, 105.8370], [21.0335, 105.8385]]
       },
@@ -185,8 +234,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Hoàng Diệu",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Hoàng Diệu, Hà Nội",
-        "destination": "Cuối đường Hoàng Diệu, Hà Nội",
+        "origin": "Phan Đình Phùng",
+        "destination": "Nguyễn Thái Học",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0350, 105.8400], [21.0320, 105.8405]]
       },
@@ -194,8 +243,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Độc Lập",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Độc Lập, Hà Nội",
-        "destination": "Cuối đường Độc Lập, Hà Nội",
+        "origin": "Điện Biên Phủ",
+        "destination": "Hoàng Văn Thụ",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0365, 105.8350], [21.0350, 105.8355]]
       },
@@ -203,8 +252,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Lê Hồng Phong",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Lê Hồng Phong, Hà Nội",
-        "destination": "Cuối đường Lê Hồng Phong, Hà Nội",
+        "origin": "Đội Cấn",
+        "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0335, 105.8355], [21.0340, 105.8380]]
       },
@@ -212,8 +261,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Hoàng Văn Thụ",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Hoàng Văn Thụ, Hà Nội",
-        "destination": "Cuối đường Hoàng Văn Thụ, Hà Nội",
+        "origin": "Hoàng Diệu",
+        "destination": "Độc Lập",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0375, 105.8350], [21.0380, 105.8400]]
       },
@@ -221,8 +270,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Nguyễn Tri Phương",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Nguyễn Tri Phương, Hà Nội",
-        "destination": "Cuối đường Nguyễn Tri Phương, Hà Nội",
+        "origin": "Phan Đình Phùng",
+        "destination": "Điện Biên Phủ",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0340, 105.8410], [21.0280, 105.8415]]
       },
@@ -230,8 +279,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Điện Biên Phủ",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu đường Điện Biên Phủ, Hà Nội",
-        "destination": "Cuối đường Điện Biên Phủ, Hà Nội",
+        "origin": "Cửa Nam",
+        "destination": "Lăng Bác",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0290, 105.8400], [21.0330, 105.8390]]
       },
@@ -239,8 +288,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Lê Duẩn",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Điện Biên Phủ, Hà Nội",
-        "destination": "Nguyễn Du, Hà Nội",
+        "origin": "Điện Biên Phủ",
+        "destination": "Nguyễn Du",
         "note": "Đoạn Điện Biên Phủ - Nguyễn Du",
         "cachedPath": [[21.0330, 105.8400], [21.0200, 105.8420]]
       },
@@ -248,17 +297,17 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Hàng Lọng",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đường Lê Duẩn (Hàng Lọng), Hà Nội",
-        "destination": "Đường Lê Duẩn (Hàng Lọng), Hà Nội",
-        "note": "Khu vực Ga Hà Nội",
+        "origin": "Khu vực Ga Hà Nội",
+        "destination": "Khu vực Ga Hà Nội",
+        "note": "Đoạn qua Ga Hà Nội",
         "cachedPath": [[21.0245, 105.8415], [21.0235, 105.8418]]
       },
       {
         "name": "Trần Bình Trọng",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu phố Trần Bình Trọng, Hà Nội",
-        "destination": "Cuối phố Trần Bình Trọng, Hà Nội",
+        "origin": "Trần Hưng Đạo",
+        "destination": "Trần Nhân Tông",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0225, 105.8430], [21.0200, 105.8435]]
       },
@@ -266,8 +315,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Trần Hưng Đạo",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Quang Trung, Hà Nội",
-        "destination": "Quán Sứ, Hà Nội",
+        "origin": "Quang Trung",
+        "destination": "Quán Sứ",
         "note": "Đoạn Quang Trung - Quán Sứ",
         "cachedPath": [[21.0228, 105.8425], [21.0242, 105.8458]]
       },
@@ -275,8 +324,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Quán Sứ",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu phố Quán Sứ, Hà Nội",
-        "destination": "Cuối phố Quán Sứ, Hà Nội",
+        "origin": "Hai Bà Trưng",
+        "destination": "Trần Hưng Đạo",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0255, 105.8458], [21.0210, 105.8450]]
       },
@@ -284,8 +333,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Tràng Thi",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Đầu phố Tràng Thi, Hà Nội",
-        "destination": "Cuối phố Tràng Thi, Hà Nội",
+        "origin": "Cửa Nam",
+        "destination": "Quang Trung",
         "note": "Toàn tuyến",
         "cachedPath": [[21.0265, 105.8480], [21.0260, 105.8420]]
       },
@@ -293,8 +342,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Vành đai 3 trên cao",
         "type": "forbidden",
         "color": "#9f224e",
-        "origin": "Cầu Thăng Long, Hà Nội",
-        "destination": "Nút giao Quốc lộ 5, Hà Nội",
+        "origin": "Cầu Thăng Long",
+        "destination": "Nút giao Quốc lộ 5",
         "note": "Cấm ô tô >10 tấn, 6h-21h",
         "cachedPath": [
             [21.0965, 105.7845], // Cầu Thăng Long
@@ -314,8 +363,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Hoàng Hoa Thám",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Hoàng Hoa Thám, Hà Nội",
-        "destination": "Cuối đường Hoàng Hoa Thám, Hà Nội",
+        "origin": "Bưởi",
+        "destination": "Phan Đình Phùng",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0435, 105.8130], [21.0380, 105.8350]]
       },
@@ -323,8 +372,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Thanh Niên",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Thanh Niên, Hà Nội",
-        "destination": "Cuối đường Thanh Niên, Hà Nội",
+        "origin": "Yên Phụ",
+        "destination": "Hùng Vương",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0480, 105.8350], [21.0420, 105.8420]]
       },
@@ -332,8 +381,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Thụy Khuê",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Thụy Khuê, Hà Nội",
-        "destination": "Cuối đường Thụy Khuê, Hà Nội",
+        "origin": "Bưởi",
+        "destination": "Mai Xuân Thưởng",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0430, 105.8150], [21.0380, 105.8320]]
       },
@@ -341,8 +390,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Nghi Tàm",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Nghi Tàm, Hà Nội",
-        "destination": "Cuối đường Nghi Tàm, Hà Nội",
+        "origin": "Âu Cơ",
+        "destination": "Yên Phụ",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0550, 105.8350], [21.0600, 105.8300]]
       },
@@ -350,8 +399,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Âu Cơ",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Âu Cơ, Hà Nội",
-        "destination": "Cuối đường Âu Cơ, Hà Nội",
+        "origin": "Cầu Nhật Tân",
+        "destination": "Nghi Tàm",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0650, 105.8300], [21.0800, 105.8150]]
       },
@@ -359,8 +408,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "An Dương Vương",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường An Dương Vương, Hà Nội",
-        "destination": "Cuối đường An Dương Vương, Hà Nội",
+        "origin": "Cầu Nhật Tân",
+        "destination": "Cầu Thăng Long",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0800, 105.8150], [21.0900, 105.8000]]
       },
@@ -368,8 +417,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Yên Phụ",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Yên Phụ, Hà Nội",
-        "destination": "Cuối đường Yên Phụ, Hà Nội",
+        "origin": "Nghi Tàm",
+        "destination": "Trần Nhật Duật",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0450, 105.8450], [21.0400, 105.8500]]
       },
@@ -377,8 +426,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Trần Nhật Duật",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Trần Nhật Duật, Hà Nội",
-        "destination": "Cuối đường Trần Nhật Duật, Hà Nội",
+        "origin": "Yên Phụ",
+        "destination": "Trần Quang Khải",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0360, 105.8550], [21.0300, 105.8600]]
       },
@@ -386,8 +435,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Hai Bà Trưng",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Hai Bà Trưng, Hà Nội",
-        "destination": "Cuối đường Hai Bà Trưng, Hà Nội",
+        "origin": "Lê Thánh Tông",
+        "destination": "Lê Duẩn",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0250, 105.8500], [21.0240, 105.8400]]
       },
@@ -395,8 +444,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Láng",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Láng, Hà Nội",
-        "destination": "Cuối đường Láng, Hà Nội",
+        "origin": "Cầu Giấy",
+        "destination": "Ngã Tư Sở",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0320, 105.8020], [21.0150, 105.8050], [21.0020, 105.8150]]
       },
@@ -404,8 +453,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Láng Hạ",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Láng Hạ, Hà Nội",
-        "destination": "Cuối đường Láng Hạ, Hà Nội",
+        "origin": "Láng",
+        "destination": "Giảng Võ",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0180, 105.8060], [21.0160, 105.8250]]
       },
@@ -413,8 +462,8 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Lê Văn Lương",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Lê Văn Lương, Hà Nội",
-        "destination": "Cuối đường Lê Văn Lương, Hà Nội",
+        "origin": "Khuất Duy Tiến",
+        "destination": "Láng",
         "note": "Hạn chế xe tải/khách",
         "cachedPath": [[21.0070, 105.8000], [21.0030, 105.8180]]
       },
@@ -422,10 +471,10 @@ export const ROAD_DATA: RoadGroup[] = [
         "name": "Mễ Trì",
         "type": "restricted",
         "color": "#ea580c",
-        "origin": "Đầu đường Mễ Trì, Hà Nội",
-        "destination": "Cuối đường Mễ Trì, Hà Nội",
-        "note": "Hạn chế xe tải/khách",
-        "cachedPath": [[21.0140, 105.7850], [21.0120, 105.7600]]
+        "origin": "Lê Quang Đạo",
+        "destination": "Phạm Hùng",
+        "note": "Hạn chế xe tải/khách (Đoạn này đã cấm, có thể là Mễ Trì đoạn trên)",
+        "cachedPath": [[21.01185, 105.77123], [21.01423, 105.78469]]
       }
     ]
   }
