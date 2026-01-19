@@ -1,13 +1,15 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Search, AlertTriangle, XCircle, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
+import { Search, AlertTriangle, XCircle, ChevronLeft, ChevronRight, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 import { ROAD_DATA } from '../data';
 
 const ITEMS_PER_PAGE = 10;
+const COLLAPSED_ITEMS = 3;
 
 export const StreetLookup: React.FC = () => {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState<'forbidden' | 'restricted'>('forbidden');
+  const [isExpanded, setIsExpanded] = useState(false);
   
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -29,15 +31,29 @@ export const StreetLookup: React.FC = () => {
     return sourceData;
   }, [query, currentGroupData]);
 
+  // Auto-expand if user searches
+  useEffect(() => {
+    if (query.length > 0 && !isExpanded) {
+        setIsExpanded(true);
+    }
+  }, [query]);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [query, activeTab]);
 
   const totalPages = Math.ceil(filteredStreets.length / ITEMS_PER_PAGE);
-  const currentData = filteredStreets.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  
+  // Logic for displayed data: Collapsed vs Expanded
+  const currentData = useMemo(() => {
+    if (!isExpanded) {
+        return filteredStreets.slice(0, COLLAPSED_ITEMS);
+    }
+    return filteredStreets.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+  }, [isExpanded, filteredStreets, currentPage]);
 
   const goToPage = (page: number) => {
     if (page >= 1 && page <= totalPages) {
@@ -57,10 +73,14 @@ export const StreetLookup: React.FC = () => {
     window.open(url, '_blank');
   };
 
+  const toggleExpand = () => {
+      setIsExpanded(!isExpanded);
+  };
+
   return (
-    <div className="bg-white rounded border border-vne-border shadow-sm relative">
+    <div className="bg-white rounded border border-vne-border shadow-sm relative overflow-hidden transition-all duration-300">
       <div className="p-3 pb-0">
-        <div className="flex justify-between items-center mb-3">
+        <div className="flex justify-between items-center mb-2">
             <h3 className="font-serif font-bold text-lg text-gray-900 flex items-center">
                 <span className="w-1 h-4 bg-vne-red mr-2 inline-block rounded-sm"></span>
                 Tra cứu tuyến đường
@@ -89,12 +109,11 @@ export const StreetLookup: React.FC = () => {
         </div>
       </div>
 
-      {/* LIST VIEW */}
-      <>
-        <div 
+      {/* SEARCH BAR */}
+      <div 
         ref={searchContainerRef}
         className="sticky top-0 z-20 bg-white px-3 py-2 border-b border-gray-100 shadow-sm transition-all"
-        >
+      >
         <div className="relative">
             <input
             type="text"
@@ -105,9 +124,10 @@ export const StreetLookup: React.FC = () => {
             />
             <Search className="absolute left-2.5 top-2.5 text-gray-400 w-4 h-4" />
         </div>
-        </div>
+      </div>
 
-        <div className="px-3 min-h-[300px]">
+      {/* LIST VIEW */}
+      <div className="px-3 transition-all duration-300 ease-in-out">
         {currentData.length > 0 ? (
             <div className="divide-y divide-gray-50">
                 {currentData.map((street, idx) => (
@@ -142,36 +162,57 @@ export const StreetLookup: React.FC = () => {
                 ))}
             </div>
         ) : (
-            <div className="text-center py-8 text-gray-400">
+            <div className="text-center py-6 text-gray-400">
                 <p className="text-sm">Không tìm thấy kết quả.</p>
             </div>
         )}
+      </div>
 
-        {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-1.5 mt-2 mb-3 pt-2 border-t border-gray-100">
-                <button 
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="p-1 rounded border border-gray-200 text-gray-500 disabled:opacity-30 hover:bg-gray-50"
-                >
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                </button>
-                
-                <span className="text-xs font-bold text-gray-500 mx-1">
-                    {currentPage}/{totalPages}
-                </span>
+      {/* FOOTER: EXPAND/COLLAPSE & PAGINATION */}
+      <div className="bg-gray-50 border-t border-gray-100 p-2">
+            {/* Pagination controls only appear when Expanded and pages > 1 */}
+            {isExpanded && totalPages > 1 && (
+                <div className="flex items-center justify-center gap-1.5 mb-2">
+                    <button 
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="p-1 rounded border border-gray-200 text-gray-500 disabled:opacity-30 hover:bg-white"
+                    >
+                        <ChevronLeft className="w-3.5 h-3.5" />
+                    </button>
+                    
+                    <span className="text-xs font-bold text-gray-500 mx-1">
+                        {currentPage}/{totalPages}
+                    </span>
 
+                    <button 
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="p-1 rounded border border-gray-200 text-gray-500 disabled:opacity-30 hover:bg-white"
+                    >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                </div>
+            )}
+
+            {/* Main Toggle Button */}
+            {filteredStreets.length > COLLAPSED_ITEMS && (
                 <button 
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="p-1 rounded border border-gray-200 text-gray-500 disabled:opacity-30 hover:bg-gray-50"
+                    onClick={toggleExpand}
+                    className="w-full flex items-center justify-center py-1.5 text-xs font-bold text-vne-gray hover:text-vne-red transition-colors uppercase tracking-wider"
                 >
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    {isExpanded ? (
+                        <>
+                            Thu gọn <ChevronUp className="w-3 h-3 ml-1" />
+                        </>
+                    ) : (
+                        <>
+                            Xem danh sách đầy đủ ({filteredStreets.length}) <ChevronDown className="w-3 h-3 ml-1" />
+                        </>
+                    )}
                 </button>
-            </div>
-        )}
-        </div>
-      </>
+            )}
+      </div>
     </div>
   );
 };
